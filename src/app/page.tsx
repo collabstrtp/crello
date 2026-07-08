@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Hero from "@/components/Hero";
 import gsap from "gsap";
+import ContactOverlay from "@/components/contact/ContactOverlay";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import {
   ArrowUpRight,
@@ -209,11 +210,13 @@ export default function HomePage() {
 
   const expertiseRef = useRef<HTMLElement>(null);
 
+  const gatewayRef = useRef<HTMLDivElement>(null);
+
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeTestimonial, setActiveTestimonial] = useState(0);
-    const reducedMotion = usereducedMotion();
-
-
+  const reducedMotion = usereducedMotion();
+  const contactRef = useRef<HTMLElement>(null);
+  const [contactOpen, setContactOpen] = useState(false);
   /* =======================================================
      GSAP ANIMATIONS
   ======================================================= */
@@ -292,6 +295,7 @@ export default function HomePage() {
         );
       });
 
+
       gsap.to(".floating-orb", {
         y: -100,
         x: 50,
@@ -314,6 +318,12 @@ export default function HomePage() {
           scrub: 1,
         },
       });
+      ScrollTrigger.create({
+        trigger: contactRef.current,
+        start: "top center",
+        once: true,
+        onEnter: () => setContactOpen(true),
+      });
     }, pageRef);
 
     return () => ctx.revert();
@@ -321,16 +331,16 @@ export default function HomePage() {
 
 
   function usereducedMotion() {
-  const [reduced, setReduced] = useState(false);
-  useEffect(() => {
-    const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
-    setReduced(mq.matches);
-    const handler = () => setReduced(mq.matches);
-    mq.addEventListener("change", handler);
-    return () => mq.removeEventListener("change", handler);
-  }, []);
-  return reduced;
-}
+    const [reduced, setReduced] = useState(false);
+    useEffect(() => {
+      const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
+      setReduced(mq.matches);
+      const handler = () => setReduced(mq.matches);
+      mq.addEventListener("change", handler);
+      return () => mq.removeEventListener("change", handler);
+    }, []);
+    return reduced;
+  }
 
   return (
     <main
@@ -573,81 +583,81 @@ export default function HomePage() {
         </div>
       </section>
 
-     {/* =====================================================
+      {/* =====================================================
     06. TECHNOLOGY / EXPERTISE AREA
 ===================================================== */}
 
-<section className="relative overflow-hidden px-6 py-28 md:px-10 md:py-40">
-  {/* Section Label */}
-  <p
-    data-reveal
-    className="mb-8 text-xs uppercase tracking-[0.25em] text-[#A3A3A3]"
-  >
-    04 / Our Stack
-  </p>
-
-  {/* Heading */}
-  <h2
-    data-reveal
-    className="mb-16 max-w-4xl text-[clamp(2.25rem,6vw,4.5rem)] font-semibold uppercase leading-[1.02] tracking-tight"
-  >
-    Technology is the tool. Impact is the outcome.
-  </h2>
-
-  {/* Stack Marquee Rows */}
-  <div className="flex flex-col gap-6">
-    {STACK_ROWS.map((row) => {
-      const content = [...row.items, ...row.items, ...row.items];
-
-      return (
-        <div
-          key={row.label}
-          className="group relative overflow-hidden border-y border-white/10 py-6"
+      <section className="relative overflow-hidden px-6 py-28 md:px-10 md:py-40">
+        {/* Section Label */}
+        <p
+          data-reveal
+          className="mb-8 text-xs uppercase tracking-[0.25em] text-[#A3A3A3]"
         >
-          {/* Row Label */}
-          <div className="mb-3 px-1 text-[10px] uppercase tracking-[0.2em] text-[#A3A3A3]">
-            {row.label}
-          </div>
+          04 / Our Stack
+        </p>
 
-          {/* Marquee */}
-          <div className="flex overflow-hidden">
-            <motion.div
-              className="flex shrink-0 items-center gap-10 pr-10"
-              animate={
-                reducedMotion
-                  ? undefined
-                  : {
-                      x:
-                        row.dir > 0
-                          ? ["0%", "-33.333%"]
-                          : ["-33.333%", "0%"],
+        {/* Heading */}
+        <h2
+          data-reveal
+          className="mb-16 max-w-4xl text-[clamp(2.25rem,6vw,4.5rem)] font-semibold uppercase leading-[1.02] tracking-tight"
+        >
+          Technology is the tool. Impact is the outcome.
+        </h2>
+
+        {/* Stack Marquee Rows */}
+        <div className="flex flex-col gap-6">
+          {STACK_ROWS.map((row) => {
+            const content = [...row.items, ...row.items, ...row.items];
+
+            return (
+              <div
+                key={row.label}
+                className="group relative overflow-hidden border-y border-white/10 py-6"
+              >
+                {/* Row Label */}
+                <div className="mb-3 px-1 text-[10px] uppercase tracking-[0.2em] text-[#A3A3A3]">
+                  {row.label}
+                </div>
+
+                {/* Marquee */}
+                <div className="flex overflow-hidden">
+                  <motion.div
+                    className="flex shrink-0 items-center gap-10 pr-10"
+                    animate={
+                      reducedMotion
+                        ? undefined
+                        : {
+                          x:
+                            row.dir > 0
+                              ? ["0%", "-33.333%"]
+                              : ["-33.333%", "0%"],
+                        }
                     }
-              }
-              transition={{
-                duration: 22,
-                repeat: Infinity,
-                ease: "linear",
-              }}
-            >
-              {content.map((item, i) => (
-                <span
-                  key={`${item}-${i}`}
-                  className="whitespace-nowrap text-[clamp(1.5rem,4vw,2.75rem)] font-medium uppercase tracking-tight text-transparent [-webkit-text-stroke:1px_rgba(245,245,240,0.4)] transition-all duration-300 hover:text-[#F5F5F0] hover:[-webkit-text-stroke:0px]"
-                >
-                  {item}
+                    transition={{
+                      duration: 22,
+                      repeat: Infinity,
+                      ease: "linear",
+                    }}
+                  >
+                    {content.map((item, i) => (
+                      <span
+                        key={`${item}-${i}`}
+                        className="whitespace-nowrap text-[clamp(1.5rem,4vw,2.75rem)] font-medium uppercase tracking-tight text-transparent [-webkit-text-stroke:1px_rgba(245,245,240,0.4)] transition-all duration-300 hover:text-[#F5F5F0] hover:[-webkit-text-stroke:0px]"
+                      >
+                        {item}
 
-                  <span className="mx-6 inline-block text-[#A3A3A3]">
-                    /
-                  </span>
-                </span>
-              ))}
-            </motion.div>
-          </div>
+                        <span className="mx-6 inline-block text-[#A3A3A3]">
+                          /
+                        </span>
+                      </span>
+                    ))}
+                  </motion.div>
+                </div>
+              </div>
+            );
+          })}
         </div>
-      );
-    })}
-  </div>
-</section>
+      </section>
 
       {/* =====================================================
           07. PROCESS / WORKING APPROACH
@@ -914,51 +924,12 @@ export default function HomePage() {
           10. CONTACT / CTA SECTION
       ===================================================== */}
 
-      <section
-        id="contact"
-        className="relative overflow-hidden bg-[#ff5c35] px-5 py-24 text-white md:px-10 md:py-36 lg:px-14 lg:py-44"
-      >
-        <div className="absolute -right-[10vw] -top-[15vw] h-[50vw] w-[50vw] rounded-full border-[1px] border-white/20" />
-        <div className="absolute -right-[2vw] -top-[7vw] h-[34vw] w-[34vw] rounded-full border-[1px] border-white/20" />
+      <section id="contact">
 
-        <div className="relative z-10 mx-auto max-w-[1600px]">
-          <div className="reveal-up">
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-white/70">
-              Have an idea?
-            </p>
 
-            <h2 className="mt-8 max-w-6xl text-[15vw] font-medium leading-[0.78] tracking-[-0.08em] md:text-[11vw] lg:text-[9vw]">
-              Let&apos;s make
-              <br />
-              it real.
-            </h2>
-          </div>
+        <ContactOverlay />
 
-          <div className="mt-16 grid gap-10 border-t border-white/30 pt-10 lg:grid-cols-12">
-            <div className="lg:col-span-6">
-              <p className="max-w-lg text-lg leading-relaxed text-white/80 md:text-xl">
-                Tell us what you&apos;re building, what&apos;s slowing you down,
-                or where you want to go next. We&apos;ll help shape the right
-                path forward.
-              </p>
-            </div>
-
-            <div className="flex lg:col-span-6 lg:justify-end">
-              <a
-                href="mailto:hello@crello.com"
-                className="group flex items-center gap-5 rounded-full bg-[#111] py-2 pl-7 pr-2 text-xs font-bold uppercase tracking-[0.14em] text-white"
-              >
-                Start a conversation
-                <span className="flex h-14 w-14 items-center justify-center rounded-full bg-white text-black transition-transform duration-300 group-hover:rotate-45">
-                  <ArrowUpRight size={20} />
-                </span>
-              </a>
-            </div>
-          </div>
-        </div>
       </section>
-
-
     </main>
   );
 }
