@@ -927,7 +927,8 @@ export default function HomePage() {
       <section id="contact">
 
 
-        <ContactOverlay />
+        <ContactOverlay
+        />
 
       </section>
     </main>

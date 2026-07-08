@@ -16,14 +16,15 @@ export default function ContactOverlay() {
     const bottomText = useRef<HTMLDivElement>(null);
     const cardRef = useRef<HTMLDivElement>(null);
     const formRef = useRef<HTMLDivElement>(null);
-    const timeline = useRef<gsap.core.Timeline | undefined>(undefined);
+
+    const openTl = useRef<gsap.core.Timeline | null>(null);
+    const closeTl = useRef<gsap.core.Timeline | null>(null);
 
     const [isOpen, setIsOpen] = useState(false);
-
+    const [canOpen, setCanOpen] = useState(true);
     const closeCard = useCallback(() => {
-        timeline.current?.timeScale(1.4).reverse();
+        closeTl.current?.restart();
     }, []);
-
     // Card tilt on mouse move
     useEffect(() => {
         const card = cardRef.current;
@@ -66,37 +67,40 @@ export default function ContactOverlay() {
             gsap.set(bottomPanel.current, { height: "50%" });
             gsap.set(cardRef.current, { yPercent: 120, scale: 0.86, rotate: -6 });
             gsap.set(formRef.current, { opacity: 0, y: 80 });
-            gsap.set(".split-char", { y: 180 });
-
-            const tl = gsap.timeline({
+            /*             gsap.set(".split-char", { y: 180 });
+             */
+            const open = gsap.timeline({
                 defaults: { ease: "power4.out" },
                 scrollTrigger: {
                     trigger: overlayRef.current,
                     start: "top 65%",
                     end: "bottom top",
-                    toggleActions: "play none none reverse",
+                    toggleActions: "play none none none", // <-- don't reverse automatically
                 },
                 onStart: () => setIsOpen(true),
-                onReverseComplete: () => setIsOpen(false),
             });
 
-            timeline.current = tl;
+            openTl.current = open;
 
-            tl.to(topText.current?.querySelectorAll(".split-char") || [], {
+
+            open.to(topText.current?.querySelectorAll(".split-char") || [], {
                 y: 0,
                 duration: 0.9,
                 stagger: { each: 0.02, from: "start" },
                 ease: "power4.out",
             });
 
-            tl.to(bottomText.current?.querySelectorAll(".split-char") || [], {
-                y: 0,
-                duration: 0.75,
-                stagger: { each: 0.025 },
-                ease: "power4.out",
-            }, "-=0.45");
-
-            tl.to({}, { duration: 0.45 });
+            open.to(
+                bottomText.current?.querySelectorAll(".split-char") || [],
+                {
+                    y: 0,
+                    duration: 0.75,
+                    stagger: { each: 0.025 },
+                    ease: "power4.out",
+                },
+                "-=0.45"
+            );
+            open.to({}, { duration: 0.45 });
 
             mm.add(
                 { isDesktop: "(min-width: 768px)", isMobile: "(max-width: 767px)" },
@@ -104,12 +108,12 @@ export default function ContactOverlay() {
                     const { isDesktop } = context.conditions as { isDesktop: boolean };
                     const panelHeight = isDesktop ? "11%" : "8%";
 
-                    tl.to(topPanel.current, { height: panelHeight, duration: 1.2, ease: "power4.inOut" }, "-=0.1");
-                    tl.to(bottomPanel.current, { height: panelHeight, duration: 1.2, ease: "power4.inOut" }, "<");
+                    open.to(topPanel.current, { height: panelHeight, duration: 1.2, ease: "power4.inOut" }, "-=0.1");
+                    open.to(bottomPanel.current, { height: panelHeight, duration: 1.2, ease: "power4.inOut" }, "<");
                 }
             );
 
-            tl.to(cardRef.current, {
+            open.to(cardRef.current, {
                 yPercent: 0,
                 rotate: 0,
                 scale: 1,
@@ -117,27 +121,97 @@ export default function ContactOverlay() {
                 ease: "power4.out",
             }, "-=0.9");
 
-            tl.to(cardRef.current, { scale: 1.015, duration: 0.18, repeat: 1, yoyo: true });
+            open.to(cardRef.current, { scale: 1.015, duration: 0.18, repeat: 1, yoyo: true });
 
-            tl.to(formRef.current, { opacity: 1, y: 0, duration: 0.5 }, "-=0.4");
+            open.to(formRef.current, { opacity: 1, y: 0, duration: 0.5 }, "-=0.4");
 
-            tl.to({}, { duration: 0.08 });
+            open.to({}, { duration: 0.08 });
 
-            tl.from(formRef.current?.querySelectorAll("[data-stagger]") || [], {
+            open.from(formRef.current?.querySelectorAll("[data-stagger]") || [], {
                 opacity: 0,
                 y: 30,
                 stagger: 0.12,
                 duration: 0.55,
                 ease: "power4.out",
             }, "-=0.15");
+            const close = gsap.timeline({
+                paused: true,
+                defaults: {
+                    ease: "power4.inOut",
+                },
+                onComplete: () => {
+                    setIsOpen(false);
+                    setCanOpen(true);
+                    // Reset the opening timeline to the beginning
+                    openTl.current?.pause(0).progress(0);
+                }
+            });
+
+            mm.add(
+                { isDesktop: "(min-width: 768px)", isMobile: "(max-width: 767px)" },
+                (context) => {
+                    const { isDesktop } = context.conditions as { isDesktop: boolean };
+                    const panelHeight = isDesktop ? "11%" : "8%";
+
+                    close
+                        .to(formRef.current, {
+                            opacity: 0,
+                            y: 80,
+                            duration: 0.35,
+                        })
+
+                        .to(
+                            cardRef.current,
+                            {
+                                yPercent: 120,
+                                rotate: -6,
+                                scale: 0.86,
+                                duration: 1,
+                            },
+                            "-=0.1"
+                        )
+
+                        .to(
+                            topPanel.current,
+                            {
+                                height: "50%",
+                                duration: 1,
+                            },
+                            "-=0.8"
+                        )
+
+                        .to(
+                            bottomPanel.current,
+                            {
+                                height: "50%",
+                                duration: 1,
+                            },
+                            "<"
+                        );
+                }
+            );
+
+            closeTl.current = close;
         }, overlayRef);
 
         return () => {
-            timeline.current = undefined;
+            closeTl.current = null;
+            openTl.current = null;
             ctx.revert();
         };
     }, []);
+    const openContact = useCallback(() => {
+        if (isOpen) return;
+        setCanOpen(false);
 
+        setIsOpen(true);
+
+        // Reset opening timeline
+        openTl.current?.restart();
+
+        // Reset closing timeline
+        closeTl.current?.pause(0);
+    }, [isOpen]);
     return (
         <div ref={overlayRef} className="relative h-screen w-full bg-black">
             {isOpen && (
@@ -161,7 +235,53 @@ export default function ContactOverlay() {
                     />
                 </div>
             </section>
+            {canOpen && !isOpen && (
+                <button
+                    onClick={openContact}
+                    className="
+absolute
+left-1/2
+top-1/2
+z-50
+-flex
+-translate-x-1/2
+-translate-y-1/2
+items-center
+gap-2
 
+rounded-full
+bg-[#ff5c35]
+
+px-5 py-3
+sm:px-6 sm:py-3.5
+md:px-8 md:py-4
+lg:px-10 lg:py-5
+
+text-[10px]
+sm:text-xs
+md:text-sm
+
+font-semibold
+uppercase
+tracking-[0.15em]
+sm:tracking-[0.18em]
+md:tracking-[0.22em]
+
+text-white
+
+shadow-[0_10px_30px_rgba(255,92,53,0.35)]
+transition-all
+duration-300
+
+hover:scale-105
+hover:bg-[#ff6d47]
+active:scale-95
+
+        "
+                >
+                    Let's Talk
+                </button>
+            )}
             {/* CARD */}
             <section
                 ref={cardRef}
