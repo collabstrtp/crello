@@ -8,7 +8,7 @@ const projectTypes = ["Web Design", "Web Development", "Branding", "Other"];
 type Status = "idle" | "loading" | "success" | "error";
 
 const inputClass =
-    "w-full rounded-lg sm:rounded-xl border border-white/30 bg-white/5 px-3 py-2 sm:px-4 sm:py-3 text-sm text-white outline-none transition-colors placeholder:text-white/40 focus:border-white focus:bg-white/10 sm:text-base";
+    "w-full rounded-lg sm:rounded-xl border border-black/30 bg-black/5 px-3 py-2 sm:px-4 sm:py-3 text-sm text-black outline-none transition-colors placeholder:text-black/40 focus:border-white focus:bg-black/10 sm:text-base";
 
 function Field({
     label,
@@ -26,7 +26,7 @@ function Field({
         >
             <label
                 htmlFor={htmlFor}
-                className="w-20 shrink-0 text-[10px] font-bold uppercase tracking-wide text-white/70 sm:w-auto sm:text-xs sm:tracking-wider"
+                className="w-20 shrink-0 text-[10px] font-bold uppercase tracking-wide text-black/70 sm:w-auto sm:text-xs sm:tracking-wider"
             >
                 {label}
             </label>
@@ -61,18 +61,18 @@ export default function ContactForm() {
         return (
             <div className="flex h-full flex-col items-center justify-center gap-4 bg-[#F97316] px-6 text-center">
                 <div className="flex h-14 w-14 items-center justify-center rounded-full bg-black">
-                    <Check className="text-white" size={28} />
+                    <Check className="text-black" size={28} />
                 </div>
-                <h2 className="text-2xl font-black text-white sm:text-4xl">
+                <h2 className="text-2xl font-black text-black sm:text-4xl">
                     Message sent!
                 </h2>
-                <p className="max-w-sm text-white/80">
+                <p className="max-w-sm text-black/80">
                     Thanks for reaching out — we&apos;ll get back to you within
                     1–2 business days.
                 </p>
                 <button
                     onClick={() => setStatus("idle")}
-                    className="mt-2 text-sm font-semibold text-white underline underline-offset-4"
+                    className="mt-2 text-sm font-semibold text-black underline underline-offset-4"
                 >
                     Send another message
                 </button>
@@ -97,7 +97,7 @@ export default function ContactForm() {
             {/* HEADING */}
             <h2
                 data-stagger
-                className="mb-3 text-xl font-black leading-[0.95] text-white sm:mb-4 sm:text-4xl lg:text-5xl"
+                className="mb-3 text-xl font-black leading-[0.95] text-black sm:mb-4 sm:text-4xl lg:text-5xl"
             >
                 Let&apos;s talk,
                 <br />
@@ -180,7 +180,7 @@ export default function ContactForm() {
                 <div data-stagger className="flex min-h-0 flex-col gap-1">
                     <label
                         htmlFor="message"
-                        className="text-[10px] font-bold uppercase tracking-wide text-white/70 sm:text-xs sm:tracking-wider"
+                        className="text-[10px] font-bold uppercase tracking-wide text-black/70 sm:text-xs sm:tracking-wider"
                     >
                         Message
                     </label>
@@ -217,7 +217,7 @@ export default function ContactForm() {
             </div>
 
             {status === "error" && (
-                <p className="mt-3 text-center text-sm text-white">
+                <p className="mt-3 text-center text-sm text-black">
                     Something went wrong — please try again or email us directly.
                 </p>
             )}
