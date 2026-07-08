@@ -162,11 +162,31 @@ const testimonials: Testimonial[] = [
   },
 ];
 const STACK_ROWS = [
-  { label: "FRONTEND", items: ["Next.js", "React", "TypeScript", "Tailwind CSS"], dir: 1 },
-  { label: "BACKEND", items: ["Node.js", "Express", "REST APIs"], dir: -1 },
-  { label: "DATA", items: ["MongoDB", "MySQL", "Redis"], dir: 1 },
-  { label: "AI", items: ["OpenAI", "Gemini", "Groq", "Intelligent Automation"], dir: -1 },
-  { label: "CLOUD & DEVOPS", items: ["AWS", "Docker", "Jenkins", "Nginx", "CI/CD"], dir: 1 },
+  {
+    label: "FRONTEND",
+    items: ["React.js","Next.js","TypeScript","JavaScript","Tailwind CSS","Redux","Framer Motion","GSAP",],
+    dir: 1,
+  },
+  {
+    label: "BACKEND",
+    items: ["Node.js","Express.js","REST APIs","Socket.IO","API Integration","Data Pipeline","Web Scraping","Python",],
+    dir: -1,
+  },
+  {
+    label: "DATA",
+    items: ["MongoDB","MySQL","Redis","Firestore","SQL"],
+    dir: 1,
+  },
+  {
+    label: "AI & AUTOMATION",
+    items: ["OpenAI API","Gemini API","Groq API","LLM Integration","Prompt Engineering","Intelligent Automation",],
+    dir: -1,
+  },
+  {
+    label: "CLOUD & DEVOPS",
+    items: ["AWS EC2","Docker","Docker Compose","Jenkins","CI/CD","Nginx","Linux","Ubuntu","Prometheus","Grafana","Firebase","SSL",],
+    dir: 1,
+  },
 ];
 
 /* =========================================================
@@ -211,7 +231,7 @@ export default function HomePage() {
 
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeTestimonial, setActiveTestimonial] = useState(0);
-    const reducedMotion = usereducedMotion();
+  const reducedMotion = usereducedMotion();
 
 
   /* =======================================================
@@ -321,16 +341,16 @@ export default function HomePage() {
 
 
   function usereducedMotion() {
-  const [reduced, setReduced] = useState(false);
-  useEffect(() => {
-    const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
-    setReduced(mq.matches);
-    const handler = () => setReduced(mq.matches);
-    mq.addEventListener("change", handler);
-    return () => mq.removeEventListener("change", handler);
-  }, []);
-  return reduced;
-}
+    const [reduced, setReduced] = useState(false);
+    useEffect(() => {
+      const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
+      setReduced(mq.matches);
+      const handler = () => setReduced(mq.matches);
+      mq.addEventListener("change", handler);
+      return () => mq.removeEventListener("change", handler);
+    }, []);
+    return reduced;
+  }
 
   return (
     <main
@@ -573,81 +593,88 @@ export default function HomePage() {
         </div>
       </section>
 
-     {/* =====================================================
+      {/* =====================================================
     06. TECHNOLOGY / EXPERTISE AREA
 ===================================================== */}
 
-<section className="relative overflow-hidden px-6 py-28 md:px-10 md:py-40">
-  {/* Section Label */}
-  <p
-    data-reveal
-    className="mb-8 text-xs uppercase tracking-[0.25em] text-[#A3A3A3]"
-  >
-    04 / Our Stack
-  </p>
+      {/* =====================================================
+    06. TECHNOLOGY / EXPERTISE AREA
+===================================================== */}
 
-  {/* Heading */}
-  <h2
-    data-reveal
-    className="mb-16 max-w-4xl text-[clamp(2.25rem,6vw,4.5rem)] font-semibold uppercase leading-[1.02] tracking-tight"
-  >
-    Technology is the tool. Impact is the outcome.
-  </h2>
-
-  {/* Stack Marquee Rows */}
-  <div className="flex flex-col gap-6">
-    {STACK_ROWS.map((row) => {
-      const content = [...row.items, ...row.items, ...row.items];
-
-      return (
-        <div
-          key={row.label}
-          className="group relative overflow-hidden border-y border-white/10 py-6"
+      <section className="relative overflow-hidden px-6 py-28 md:px-10 md:py-40">
+        <p
+          data-reveal
+          className="mb-8 text-xs uppercase tracking-[0.25em] text-[#A3A3A3]"
         >
-          {/* Row Label */}
-          <div className="mb-3 px-1 text-[10px] uppercase tracking-[0.2em] text-[#A3A3A3]">
-            {row.label}
-          </div>
+          04 / Our Stack
+        </p>
 
-          {/* Marquee */}
-          <div className="flex overflow-hidden">
-            <motion.div
-              className="flex shrink-0 items-center gap-10 pr-10"
-              animate={
-                reducedMotion
-                  ? undefined
-                  : {
-                      x:
-                        row.dir > 0
-                          ? ["0%", "-33.333%"]
-                          : ["-33.333%", "0%"],
-                    }
-              }
-              transition={{
-                duration: 22,
-                repeat: Infinity,
-                ease: "linear",
-              }}
-            >
-              {content.map((item, i) => (
-                <span
-                  key={`${item}-${i}`}
-                  className="whitespace-nowrap text-[clamp(1.5rem,4vw,2.75rem)] font-medium uppercase tracking-tight text-transparent [-webkit-text-stroke:1px_rgba(245,245,240,0.4)] transition-all duration-300 hover:text-[#F5F5F0] hover:[-webkit-text-stroke:0px]"
-                >
-                  {item}
+        <h2
+          data-reveal
+          className="mb-16 max-w-4xl text-[clamp(2.25rem,6vw,4.5rem)] font-semibold uppercase leading-[1.02] tracking-tight"
+        >
+          Technology is the tool. Impact is the outcome.
+        </h2>
 
-                  <span className="mx-6 inline-block text-[#A3A3A3]">
-                    /
-                  </span>
-                </span>
-              ))}
-            </motion.div>
-          </div>
+        <div className="flex flex-col gap-6">
+          {STACK_ROWS.map((row, rowIndex) => {
+            const items = [
+              ...row.items,
+              ...row.items,
+              ...row.items,
+              ...row.items,
+            ];
+
+            const moveRight = rowIndex % 2 === 0;
+
+            return (
+              <div
+                key={row.label}
+                className="relative overflow-hidden border-y border-white/10 py-6"
+              >
+                {/* Row Label */}
+                <div className="mb-4 px-1 text-[10px] uppercase tracking-[0.2em] text-[#A3A3A3]">
+                  {row.label}
+                </div>
+
+                {/* Marquee Viewport */}
+                <div className="w-full overflow-hidden">
+                  <motion.div
+                    className="flex w-max shrink-0 items-center"
+                    initial={{
+                      x: moveRight ? "-25%" : "0%",
+                    }}
+                    animate={{
+                      x: moveRight ? "0%" : "-25%",
+                    }}
+                    transition={{
+                      duration: 12 + rowIndex * 2,
+                      repeat: Infinity,
+                      repeatType: "loop",
+                      ease: "linear",
+                    }}
+                  >
+                    {items.map((item, i) => (
+                      <div
+                        key={`${row.label}-${item}-${i}`}
+                        className="flex shrink-0 items-center"
+                      >
+                        <span className="whitespace-nowrap text-[clamp(1.5rem,4vw,2.75rem)] font-medium uppercase tracking-tight text-transparent [-webkit-text-stroke:1px_rgba(245,245,240,0.4)] transition-all duration-300 hover:text-[#F5F5F0] hover:[-webkit-text-stroke:0px]">
+                          {item}
+                        </span>
+
+                        <span className="mx-8 shrink-0 text-[clamp(1.5rem,4vw,2.75rem)] text-[#A3A3A3]">
+                          /
+                        </span>
+                      </div>
+                    ))}
+                  </motion.div>
+                </div>
+              </div>
+            );
+          })}
         </div>
-      );
-    })}
-  </div>
-</section>
+      </section>
 
       {/* =====================================================
           07. PROCESS / WORKING APPROACH
