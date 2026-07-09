@@ -75,6 +75,11 @@ export default function ContactOverlay() {
                     trigger: overlayRef.current,
                     start: "top 65%",
                     end: "bottom top",
+                    once: true,
+                    onEnter: () => {
+                        setCanOpen(true); // only show button
+
+                    },
                     toggleActions: "play none none none", // <-- don't reverse automatically
                 },
                 onStart: () => setIsOpen(true),
@@ -100,7 +105,7 @@ export default function ContactOverlay() {
                 },
                 "-=0.45"
             );
-            open.to({}, { duration: 0.45 });
+            open.to({}, { duration: 0.1 });
 
             mm.add(
                 { isDesktop: "(min-width: 768px)", isMobile: "(max-width: 767px)" },
@@ -144,6 +149,8 @@ export default function ContactOverlay() {
                     setCanOpen(true);
                     // Reset the opening timeline to the beginning
                     openTl.current?.pause(0).progress(0);
+                    openTl.current?.scrollTrigger?.refresh();
+                    //  openTl.current?.scrollTrigger?.disable();
                 }
             });
 
@@ -205,6 +212,7 @@ export default function ContactOverlay() {
         setCanOpen(false);
 
         setIsOpen(true);
+        openTl.current?.scrollTrigger?.enable();
 
         // Reset opening timeline
         openTl.current?.restart();
@@ -213,11 +221,11 @@ export default function ContactOverlay() {
         closeTl.current?.pause(0);
     }, [isOpen]);
     return (
-        <div ref={overlayRef} className="relative h-screen w-full bg-black">
+        <div ref={overlayRef} className="relative h-screen w-full">
             {isOpen && (
                 <button
                     onClick={closeCard}
-                    className="absolute right-10 top-10 z-50 text-sm uppercase tracking-[6px] text-white transition-opacity duration-300 hover:text-orange-500"
+                    className="absolute right-5  top-15 z-50 text-sm uppercase tracking-[-1px] text-black transition-opacity duration-300 hover:text-white md:top-20 md:tracking-[5px] lg:top-25"
                 >
                     Close
                 </button>
@@ -226,12 +234,12 @@ export default function ContactOverlay() {
             {/* TOP PANEL — no overflow-hidden here, SplitText already self-clips its reveal */}
             <section
                 ref={topPanel}
-                className="absolute top-0 left-0 z-40 flex w-full items-end justify-center bg-black"
+                className="absolute top-0 left-0 z-40 flex w-full items-end justify-center "
             >
                 <div ref={topText} className="pb-0">
                     <SplitText
                         text="GET IN"
-                        className="font-black uppercase text-white leading-none tracking-[-8px] text-[90px] sm:text-[150px] lg:text-[260px]"
+                        className="font-black uppercase text-black leading-none tracking-[-5px] text-[82px] sm:text-[150px] lg:text-[260px] overflow-hidden"
                     />
                 </div>
             </section>
@@ -239,45 +247,45 @@ export default function ContactOverlay() {
                 <button
                     onClick={openContact}
                     className="
-absolute
-left-1/2
-top-1/2
-z-50
--flex
--translate-x-1/2
--translate-y-1/2
-items-center
-gap-2
+                absolute
+                left-1/2
+                top-1/2
+                z-50
+                -flex
+                -translate-x-1/2
+                -translate-y-1/2
+                items-center
+                gap-2
+                lg:w-70
+                lg:h-20
+                rounded-full
+                bg-[#ff5c35]
 
-rounded-full
-bg-[#ff5c35]
+                px-4 py-3
+                sm:px-6 sm:py-3.5
+                md:px-8 md:py-4
+                lg:px-10 lg:py-5
 
-px-5 py-3
-sm:px-6 sm:py-3.5
-md:px-8 md:py-4
-lg:px-10 lg:py-5
+                text-[10px]
+                sm:text-sm
+                md:text-md
+                lg:text-2xl
 
-text-[10px]
-sm:text-xs
-md:text-sm
+                font-semibold
+                uppercase
+                tracking-[0.15em]
+                sm:tracking-[0.18em]
+                md:tracking-[0.22em]
 
-font-semibold
-uppercase
-tracking-[0.15em]
-sm:tracking-[0.18em]
-md:tracking-[0.22em]
+                text-white
 
-text-white
+                shadow-[0_10px_30px_rgba(255,92,53,0.35)]
+                transition-all
+                duration-300
 
-shadow-[0_10px_30px_rgba(255,92,53,0.35)]
-transition-all
-duration-300
-
-hover:scale-105
-hover:bg-[#ff6d47]
-active:scale-95
-
-        "
+                hover:scale-105
+                hover:bg-[#ff6d47]
+                active:scale-95"
                 >
                     Let's Talk
                 </button>
@@ -295,12 +303,12 @@ active:scale-95
             {/* BOTTOM PANEL — same fix */}
             <section
                 ref={bottomPanel}
-                className="absolute bottom-0 left-0 z-40 flex w-full items-start justify-center bg-black"
+                className="absolute bottom-0 left-0 z-40 flex w-full items-start justify-center"
             >
                 <div ref={bottomText} className="pt-0">
                     <SplitText
                         text="TOUCH"
-                        className="font-black uppercase text-white leading-none tracking-[-8px] text-[72px] sm:text-[120px] md:text-[180px] lg:text-[260px]"
+                        className="font-black uppercase text-black leading-none tracking-[-8px] text-[72px] sm:text-[120px] md:text-[180px] lg:text-[260px]"
                     />
                 </div>
             </section>

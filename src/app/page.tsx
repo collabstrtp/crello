@@ -935,9 +935,9 @@ export default function HomePage() {
           10. CONTACT / CTA SECTION
       ===================================================== */}
 
-      <section id="contact">
+      <section id="contact" ref={contactRef} className="px-0 py-5 md:px-10 md:py-36 lg:px-14 lg:py-36">
         <ContactOverlay />
       </section>
-    </main>
+    </main >
   );
 }
