@@ -105,7 +105,7 @@ export default function ContactForm() {
     return (
         <form
             onSubmit={handleSubmit}
-            className="relative grid h-full grid-rows-[auto_1fr_auto] gap-3 sm:gap-4 bg-[#F97316] px-4 py-3 sm:px-10 sm:py-6 lg:px-14 lg:py-8"
+            className="relative grid h-full grid-rows-[auto_1fr_auto] gap-3 sm:gap-4 bg-[#F97316] px-4 py-3 sm:px-10 sm:py-6 lg:px-14 lg:py-2"
         >
             <input
                 type="text"
