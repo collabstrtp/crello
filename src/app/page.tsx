@@ -35,6 +35,7 @@ import {
 } from "lucide-react";
 import jewellers from "../../public/jewellers.png";
 import returntreasure from "../../public/returntreasure.png";
+import curlcanvas from "../../public/curlcanvas.png";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -118,38 +119,6 @@ const services: Service[] = [
 const projects: Project[] = [
   {
     number: "01",
-    category: "AI / FINTECH",
-    title: "NidhiBook",
-    description:
-      "An intelligent expense platform turning everyday financial activity into clear, actionable insight.",
-    image:
-      " https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1600&q=85",
-    tags: ["AI", "Product", "Cloud"],
-    liveUrl: "https://nidhibook.vercel.app",
-  },
-  {
-    number: "02",
-    category: "AUTOMATION / SAAS",
-    title: "Mailer",
-    description:
-      "An AI-powered communication engine designed for smarter, faster and more personalized outreach.",
-    image:
-      "https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=1600&q=85",
-    tags: ["Next.js", "AI", "Automation"],
-    liveUrl: "https://mailer-three-blue.vercel.app/",
-  },
-  {
-    number: "03",
-    category: "ENTERPRISE / FINTECH",
-    title: "CorpSpend",
-    description:
-      "A role-driven expense ecosystem helping modern organizations manage approvals, bills and visibility.",
-    image:
-      "https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=1600&q=85",
-    tags: ["Enterprise", "OCR", "Analytics"],
-    liveUrl: "https://corpspend.vercel.app",
-  }, {
-    number: "04",
     category: "E-COMMERCE / KIDS",
     title: "ReturnTreasure",
     description:
@@ -158,7 +127,7 @@ const projects: Project[] = [
     tags: ["E-Commerce", "Kids", "Shopping"],
     liveUrl: "https://returntreasure.in",
   }, {
-    number: "05",
+    number: "02",
     category: "BUSINESS / ERP",
     title: "Prusty Jewellers",
     description:
@@ -168,13 +137,12 @@ const projects: Project[] = [
     liveUrl: "https://prustyjeweller.redirectme.net",
   },
   {
-    number: "06",
+    number: "03",
     category: "BEAUTY / BRANDING",
     title: "CurlCanvas",
     description:
       "A premium salon marketing website designed to showcase beauty services, strengthen brand identity, and generate customer enquiries.",
-    image:
-      "https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?auto=format&fit=crop&w=1600&q=85",
+    image: "/curlcanvas.png",
     tags: ["Marketing", "Beauty", "Branding"],
     liveUrl: "https://curl-canvas.vercel.app",
   },
@@ -781,101 +749,6 @@ export default function HomePage() {
 
       < ProcessSection />
 
-      {/* =====================================================
-          08. PORTFOLIO / PROJECTS SECTION
-      ===================================================== */}
-      {/* 
-      <section
-        id="work"
-        ref={workRef}
-        className="px-5 py-24 text-black md:px-10 md:py-36 lg:px-14 lg:py-44"
-      >
-        <div className="mx-auto max-w-[1600px]">
-          <div className="grid gap-12 lg:grid-cols-12">
-            <div className="reveal-up lg:col-span-3">
-              <SectionLabel number="06">Selected work</SectionLabel>
-            </div>
-
-            <div className="lg:col-span-9">
-              <h2 className="reveal-up max-w-5xl text-[12vw] font-medium leading-[0.9] tracking-[-0.07em] md:text-[7vw] lg:text-[5.5vw]">
-                Work with
-                <br />
-                <span className="text-black/30">
-                  a purpose.
-                </span>
-              </h2>
-            </div>
-          </div>
-
-          <div className="mt-20 space-y-24 md:mt-32 md:space-y-36">
-            {projects.map((project, index) => (
-              <article
-                key={project.title}
-                className={`grid gap-8 lg:grid-cols-12 ${index % 2 !== 0 ? "lg:items-end" : ""
-                  }`}
-              >
-                <div
-                  className={`reveal-up ${index % 2 === 0
-                    ? "lg:col-span-8"
-                    : "lg:col-span-8 lg:col-start-5"
-                    }`}
-                >
-                  <div className="relative h-[55vh] min-h-[420px] overflow-hidden rounded-[1.5rem] md:h-[72vh]">
-                    <img
-                      src={project.image}
-                      alt={project.title}
-                      className="project-image h-full w-full object-cover"
-                    />
-
-                    <div className="absolute inset-0 bg-black/15" />
-
-                    <div className="absolute right-5 top-5 flex h-16 w-16 items-center justify-center rounded-full bg-white text-black md:h-20 md:w-20">
-                      <ArrowUpRight size={22} />
-                    </div>
-                  </div>
-                </div>
-
-                <div
-                  className={`reveal-up ${index % 2 === 0
-                    ? "lg:col-span-4 lg:pl-8"
-                    : "lg:col-span-4 lg:col-start-1 lg:row-start-1"
-                    }`}
-                >
-                  <div className="flex items-center gap-3 text-[10px] uppercase tracking-[0.18em] text-black/45">
-                    <span className="text-[#ff5c35]">
-                      {project.number}
-                    </span>
-
-                    {project.category}
-                  </div>
-
-                  <h3 className="mt-6 text-5xl font-medium tracking-[-0.055em] md:text-7xl">
-                    {project.title}
-                  </h3>
-
-                  <p className="mt-6 max-w-sm leading-relaxed text-white/55">
-                    {project.description}
-                  </p>
-
-                  <div className="mt-8 flex flex-wrap gap-2">
-                    {project.tags.map((tag) => (
-                      <span
-                        key={tag}
-                        className="rounded-full border border-white/20 px-4 py-2 text-[10px] uppercase tracking-[0.14em] text-white/65"
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              </article>
-            ))}
-          </div>
-
-
-        </div>
-      </section>
- */}
 
       {/* =====================================================
           08. PORTFOLIO / PROJECTS SECTION
@@ -905,8 +778,7 @@ export default function HomePage() {
             {projects.map((project, index) => (
               <article
                 key={project.title}
-                className={`group grid gap-6 md:gap-8 lg:grid-cols-12 ${index % 2 !== 0 ? "lg:items-end" : ""
-                  }`}
+                className={`group grid gap-6 md:gap-8 lg:grid-cols-12`}
               >
                 <div
                   className={`reveal-up ${index % 2 === 0
@@ -914,7 +786,7 @@ export default function HomePage() {
                     : "lg:col-span-8 lg:col-start-5"
                     }`}
                 >
-                  <div className="relative h-[42vh] min-h-[280px] overflow-hidden rounded-[1.25rem] sm:h-[50vh] sm:min-h-[360px] md:h-[60vh] md:rounded-[1.5rem] lg:h-[72vh]">
+                  <div className="relative h-[40vh] min-h-[280px] overflow-hidden rounded-[1.25rem] sm:h-[50vh] sm:min-h-[360px] md:h-[60vh] md:rounded-[1.5rem] lg:h-[68vh]">
                     <img
                       src={project.image}
                       alt={project.title}
