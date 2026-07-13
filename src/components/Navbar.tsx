@@ -3,6 +3,9 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ArrowUpRight } from "lucide-react";
 import { useState } from "react";
+import logo from "../../public/logo-black.png";
+import Image from "next/image";
+
 
 function scrollToContact() {
   const el = document.getElementById("contact");
@@ -14,7 +17,7 @@ export default function Navbar() {
 
   return (
     <>
-      <header className="fixed left-0 top-0 z-[100] w-full px-5 py-5 mix-blend-difference md:px-10 md:py-7">
+      {/* <header className="fixed left-0 top-0 z-[100] w-full px-5 py-5 mix-blend-difference md:px-10 md:py-7">
         <div className="flex items-center justify-between text-white">
           <a
             href="#"
@@ -32,9 +35,6 @@ export default function Navbar() {
               About
             </a>
 
-            {/* Just scrolls to the #contact section. Once it comes into view,
-                HomePage's own ScrollTrigger opens the ContactOverlay — this
-                link doesn't need to know about that at all. */}
             <a
               href="#contact"
               onClick={(e) => {
@@ -56,6 +56,59 @@ export default function Navbar() {
           </button>
         </div>
       </header>
+ */}
+
+      <header className="fixed left-0 top-0 z-[100] w-full px-5 py-5 mix-blend-difference md:px-10 md:py-7">
+        <div className="flex items-center justify-between text-white">
+
+          {/* Logo */}
+          <a
+            href="#"
+            className="text-xl font-black tracking-[-0.07em] md:text-2xl"
+          >
+            CRELLO<span className="text-[#ff4d00]">●</span>
+          </a>
+
+          {/* Desktop Navigation */}
+          <div className="hidden md:flex items-center gap-10 text-[11px] font-semibold uppercase tracking-[0.12em]">
+
+            <a
+              href="#work"
+              className="transition-opacity hover:opacity-50"
+            >
+              Work
+            </a>
+
+            <a
+              href="#about"
+              className="transition-opacity hover:opacity-50"
+            >
+              About
+            </a>
+
+          </div>
+
+          {/* Desktop Contact Button */}
+          <button
+            onClick={scrollToContact}
+            className="hidden md:flex items-center gap-2 rounded-full border border-white px-5 py-2 text-[11px] font-semibold uppercase tracking-[0.12em] transition-all duration-300 hover:bg-white hover:text-black"
+          >
+            Contact
+            <ArrowUpRight size={16} />
+          </button>
+
+          {/* Mobile Menu */}
+          <button
+            onClick={() => setMenuOpen(true)}
+            className="flex md:hidden items-center gap-2 text-xs font-bold uppercase"
+          >
+            Menu
+            <Menu size={18} strokeWidth={1.7} />
+          </button>
+
+        </div>
+      </header>
+
 
       {/* FULLSCREEN MENU */}
       <AnimatePresence>
@@ -72,12 +125,17 @@ export default function Navbar() {
           >
             <div className="flex items-center justify-between">
               <div className="text-xl font-black tracking-[-0.07em] md:text-2xl">
-                BRAVE●
-              </div>
+                {/*                 <img src="./logo-black.png" alt="logo" />
+ */}             <Image
+                  src={logo}
+                  alt="Crello Logo"
+                  width={140}
+                  height={40}
+                /> </div>
 
               <button
                 onClick={() => setMenuOpen(false)}
-                className="flex items-center gap-2 text-xs font-bold uppercase"
+                className="flex md:hidden items-center gap-2 text-xs font-bold uppercase"
               >
                 Close
                 <X size={20} />
