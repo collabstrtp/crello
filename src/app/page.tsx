@@ -663,7 +663,9 @@ export default function HomePage() {
 
 
 
-      < section className="relative overflow-hidden px-6 py-10 md:px-10 md:py-40" >
+      < section
+        id="stacks"
+        className="relative overflow-hidden px-6 py-10 md:px-10 md:py-40" >
         <p
           data-reveal
           className="mb-8 text-xs uppercase tracking-[0.25em] text-[#A3A3A3]"
@@ -775,7 +777,7 @@ export default function HomePage() {
             {projects.map((project, index) => (
               <article
                 key={project.title}
-                className={`group grid gap-6 md:gap-8 lg:grid-cols-12`}
+                className={`group grid gap-6 md:gap-6 lg:grid-cols-12`}
               >
                 <div
                   className={`reveal-up ${index % 2 === 0
@@ -787,7 +789,7 @@ export default function HomePage() {
                     <img
                       src={project.image}
                       alt={project.title}
-                      className="project-image h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.05]"
+                      className="project-image h-full w-full object-fill transition-transform duration-700 ease-out group-hover:scale-[1.05]"
                     />
 
                     <div className="absolute inset-0 bg-black/15 transition-colors duration-500 group-hover:bg-black/25" />
@@ -818,7 +820,7 @@ export default function HomePage() {
                     {project.category}
                   </div>
 
-                  <h3 className="mt-5 text-4xl font-medium tracking-[-0.05em] sm:text-5xl md:mt-6 md:text-6xl lg:text-7xl">
+                  <h3 className="mt-5 text-4xl font-bold tracking-[-0.05em] sm:text-5xl md:mt-6 lg:text-6xl">
                     {project.title}
                   </h3>
 

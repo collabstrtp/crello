@@ -48,6 +48,23 @@ export default function Navbar() {
           <div className="hidden md:flex items-center gap-10 text-[11px] font-semibold uppercase tracking-[0.12em]">
 
             <a
+              href="#about"
+              className="transition-opacity hover:opacity-50"
+            >
+              About
+            </a>
+            <a
+              href="#services"
+              className="transition-opacity hover:opacity-50"
+            >
+              Services
+            </a> <a
+              href="#stacks"
+              className="transition-opacity hover:opacity-50"
+            >
+              Stacks
+            </a>
+            <a
               href="#work"
               className="transition-opacity hover:opacity-50"
             >
@@ -55,11 +72,12 @@ export default function Navbar() {
             </a>
 
             <a
-              href="#about"
+              href="#faq"
               className="transition-opacity hover:opacity-50"
             >
-              About
+              Faq
             </a>
+
 
           </div>
 
@@ -117,7 +135,7 @@ export default function Navbar() {
             </div>
 
             <div className="flex flex-1 flex-col justify-center">
-              {["Work", "About", "Services", "Contact"].map(
+              {["About", "Services", "Stacks", "Work", "Faq", "Contact"].map(
                 (item, index) => (
                   <motion.a
                     key={item}

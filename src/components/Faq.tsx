@@ -291,7 +291,8 @@ export default function FAQSection() {
     const [openIndex, setOpenIndex] = useState<number | null>(0);
 
     return (
-        <section className="relative overflow-hidden bg-white py-12 lg:py-16">
+        <section
+            id="faq" className="relative overflow-hidden bg-white py-12 lg:py-16">
             <div className="absolute left-1/2 top-0 h-[500px] w-[900px] -translate-x-1/2 -translate-y-1/3 rounded-full" />
 
             <div className="relative mb-8 lg:mb-12 text-center px-6">
