@@ -182,9 +182,11 @@ export default function Hero() {
 
                     <div className="hero-meta flex items-center justify-between text-[9px] uppercase tracking-[0.18em] text-black/60 md:text-[11px]">
                         <span>
-                            Software & digital
-                            <br />
-                            solutions / 2026
+                           
+                            CUSTOM SOFTWARE
+                                                        <br />
+
+                            DEVELOPMENT COMPANY
                         </span>
 
                         <span className="hidden text-right md:block">
@@ -366,8 +368,7 @@ export default function Hero() {
 
                     <div className="hero-meta flex items-end justify-between">
                         <p className="max-w-[250px] text-xs uppercase leading-relaxed tracking-[0.08em] text-black/60">
-                            A creative studio building identities, digital
-                            experiences and culture-shifting ideas.
+                            We build websites, custom software, AI solutions, and SaaS products for modern businesses.
                         </p>
 
                         <a

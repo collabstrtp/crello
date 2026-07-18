@@ -10,32 +10,32 @@ const PROCESS_STEPS = [
   {
     n: "01",
     title: "Discover",
-    desc: "We begin by understanding your business, users, goals, and constraints to define the right direction.",
+    desc: "We understand your business goals, users, and requirements to define the right software solution.",
   },
   {
     n: "02",
     title: "Strategy",
-    desc: "We translate insights into a clear roadmap, technical architecture, priorities, and measurable outcomes.",
+    desc: "We create a clear roadmap, technical architecture, and development plan focused on measurable outcomes.",
   },
   {
     n: "03",
     title: "Design",
-    desc: "We shape intuitive experiences and scalable interfaces that align user needs with business goals.",
+    desc: "We craft intuitive UI/UX designs that deliver seamless user experiences across web and mobile platforms.",
   },
   {
     n: "04",
-    title: "Build",
-    desc: "We engineer reliable, high-performance products using modern technologies and production-ready systems.",
+    title: "Develop",
+    desc: "We build secure, scalable, and high-performance applications using modern technologies and best practices.",
   },
   {
     n: "05",
     title: "Launch",
-    desc: "We test, optimize, deploy, and monitor the product to ensure a smooth production release.",
+    desc: "We thoroughly test, deploy, and optimize every product to ensure a smooth and reliable launch.",
   },
   {
     n: "06",
-    title: "Evolve",
-    desc: "We continue improving the product through insights, iteration, optimization, and long-term support.",
+    title: "Support & Scale",
+    desc: "We continuously monitor, improve, and scale your software with ongoing maintenance and new features.",
   },
 ];
 
@@ -289,13 +289,13 @@ export default function ProcessSection() {
             </div>
 
             <h2 className="mt-10 max-w-[350px] text-[clamp(2rem,9vw,3rem)] font-semibold uppercase leading-[0.98] tracking-[-0.04em]">
-              From first conversation to lasting impact.
+              From idea to scalable software.
             </h2>
 
             <p className="mt-6 max-w-[350px] text-[13px] leading-6 text-[#A3A3A3]">
-              A consistent method, applied to every engagement
-              &mdash; from a first call to a system running in
-              production and beyond.
+              Our proven software development process combines strategy, design,
+  engineering, testing, and continuous support to deliver secure,
+  scalable, and high-performance digital solutions..
             </p>
           </div>
 
@@ -435,13 +435,13 @@ export default function ProcessSection() {
     </div>
 
               <h2 className="mt-20 max-w-xl text-[clamp(2.25rem,5vw,4rem)] font-semibold uppercase leading-[1.02] tracking-tight">
-                From first conversation to lasting impact.
+                From idea to scalable software.
               </h2>
 
               <p className="mt-6 max-w-md text-sm leading-relaxed text-[#A3A3A3] md:text-base">
-                A consistent method, applied to every engagement
-                &mdash; from a first call to a system running in
-                production and beyond.
+                Our proven software development process combines strategy, design,
+  engineering, testing, and continuous support to deliver secure,
+  scalable, and high-performance digital solutions.
               </p>
             </div>
           </div>

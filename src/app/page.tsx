@@ -76,42 +76,42 @@ const services: Service[] = [
     number: "01",
     title: "Custom Software",
     description:
-      "Secure, scalable software engineered around your business workflows, users, and long-term growth.",
+      "Custom software solutions designed to streamline operations, improve efficiency, and support long-term business growth.",
     icon: Code2,
   },
   {
     number: "02",
     title: "Web Development",
     description:
-      "High-performance websites and web applications built for speed, conversion, accessibility, and scale.",
+      "SEO-friendly websites and scalable web applications built with React, Next.js, and modern web technologies.",
     icon: Globe2,
   },
   {
     number: "03",
-    title: "Mobile Apps",
+    title: "Mobile App Development",
     description:
-      "User-focused mobile experiences designed to perform beautifully across modern devices and platforms.",
+      "High-performance Android and iOS mobile applications built for seamless user experiences and business success.",
     icon: Smartphone,
   },
   {
     number: "04",
     title: "AI Solutions",
     description:
-      "Practical AI systems that automate work, unlock insights, and improve how teams make decisions.",
+      "AI-powered applications, automation, and intelligent systems that improve productivity and decision-making.",
     icon: BrainCircuit,
   },
   {
     number: "05",
-    title: "SEO & Growth",
+    title: "SEO & Digital Growth",
     description:
-      "Technical and content-led SEO strategies that improve visibility, discoverability, and qualified traffic.",
+      "Technical SEO, content optimization, and growth strategies that increase visibility, traffic, and conversions.",
     icon: Search,
   },
   {
     number: "06",
     title: "Business Automation",
     description:
-      "Connected workflows and intelligent automation that reduce repetitive work and operational friction.",
+      "Workflow automation, API integrations, and smart business systems that simplify operations and boost productivity.",
     icon: Workflow,
   },
 ];
@@ -119,21 +119,34 @@ const services: Service[] = [
 const projects: Project[] = [
   {
     number: "01",
-    category: "E-COMMERCE / KIDS",
+    category: "E-COMMERCE / RETAIL",
     title: "ReturnTreasure",
     description:
-      "A modern e-commerce platform offering a curated collection of premium toys, accessories, and essentials for children.",
+      "A modern e-commerce platform built for children's products with secure payments, responsive design, inventory management, and an optimized shopping experience.",
     image: "/returntreasure.png",
-    tags: ["E-Commerce", "Kids", "Shopping"],
+    tags: [
+      "Next.js",
+      "React",
+      "E-Commerce",
+      "Node.js",
+      "MongoDB",
+    ],
     liveUrl: "https://returntreasure.in",
-  }, {
+  },
+  {
     number: "02",
     category: "BUSINESS / ERP",
     title: "Prusty Jewellers",
     description:
-      "A comprehensive jewellery billing management system featuring GST invoicing, customer management, vendor tracking, and secure business operations.",
+      "A jewellery ERP and billing solution with GST invoicing, inventory management, customer records, vendor management, and secure business reporting.",
     image: "/jewellers.png",
-    tags: ["Billing", "GST", "ERP"],
+    tags: [
+      "ERP",
+      "GST Billing",
+      "React",
+      "Node.js",
+      "MySQL",
+    ],
     liveUrl: "https://prustyjeweller.redirectme.net",
   },
   {
@@ -141,9 +154,15 @@ const projects: Project[] = [
     category: "BEAUTY / BRANDING",
     title: "CurlCanvas",
     description:
-      "A premium salon marketing website designed to showcase beauty services, strengthen brand identity, and generate customer enquiries.",
+      "A premium salon website focused on online bookings, service showcase, SEO optimization, and digital branding to increase customer engagement.",
     image: "/curlcanvas.png",
-    tags: ["Marketing", "Beauty", "Branding"],
+    tags: [
+      "Next.js",
+      "SEO",
+      "Branding",
+      "UI/UX",
+      "Responsive",
+    ],
     liveUrl: "https://curl-canvas.vercel.app",
   },
 ];
@@ -151,47 +170,96 @@ const projects: Project[] = [
 const testimonials: Testimonial[] = [
   {
     quote:
-      "Crello understood the business challenge before writing a line of code. The result felt considered, fast, and genuinely useful.",
-    name: "Govinda Mahanti",
-    role: "Founder",
+      "Crello delivered a modern, high-performance solution that perfectly matched our business needs. The entire process was smooth, professional, and efficient.",
+    name: "ReturnTreasure Team",
+    role: "E-Commerce Client",
   },
   {
     quote:
-      "The team brought product thinking, engineering discipline and a level of communication that made the entire process easy.",
-    name: "Sruti Prusty",
-    role: "Product Lead",
+      "Their expertise in custom software development and attention to detail helped us build a reliable billing and management system for our business.",
+    name: "Prusty Jewellers",
+    role: "ERP Client",
   },
   {
     quote:
-      "What stood out was their ability to turn a complex workflow into a simple digital experience our team could actually use.",
-    name: "Simaran",
-    role: "Operations Director",
+      "Our new website strengthened our online presence with a premium design, better performance, and an improved customer experience.",
+    name: "CurlCanvas",
+    role: "Branding Client",
   },
 ];
 const STACK_ROWS = [
   {
     label: "FRONTEND",
-    items: ["React.js", "Next.js", "TypeScript", "JavaScript", "Tailwind CSS", "Redux", "Framer Motion", "GSAP",],
+    items: [
+      "React.js",
+      "Next.js",
+      "TypeScript",
+      "JavaScript",
+      "Tailwind CSS",
+      "Redux Toolkit",
+      "Framer Motion",
+      "GSAP",
+      "HTML5",
+      "CSS3",
+    ],
     dir: 1,
   },
   {
     label: "BACKEND",
-    items: ["Node.js", "Express.js", "REST APIs", "Socket.IO", "API Integration", "Data Pipeline", "Web Scraping", "Python",],
+    items: [
+      "Node.js",
+      "Express.js",
+      "REST APIs",
+      "GraphQL",
+      "Socket.IO",
+      "API Integration",
+      "Microservices",
+      "Web Scraping",
+      "Python",
+      "JWT Authentication",
+    ],
     dir: -1,
   },
   {
-    label: "DATA",
-    items: ["MongoDB", "MySQL", "Redis", "Firestore", "SQL"],
+    label: "DATABASE",
+    items: [
+      "MongoDB",
+      "PostgreSQL",
+      "MySQL",
+      "Redis",
+      "Firestore",
+      "SQL",
+    ],
     dir: 1,
   },
   {
     label: "AI & AUTOMATION",
-    items: ["OpenAI API", "Gemini API", "Groq API", "LLM Integration", "Prompt Engineering", "Intelligent Automation",],
+    items: [
+      "OpenAI API",
+      "Gemini API",
+      "Groq API",
+      "LLM Integration",
+      "Prompt Engineering",
+      "AI Automation",
+      "RAG",
+      "Vector Database",
+    ],
     dir: -1,
   },
   {
     label: "CLOUD & DEVOPS",
-    items: ["AWS EC2", "Docker", "Docker Compose", "Jenkins", "CI/CD", "Nginx", "Linux", "Ubuntu", "Prometheus", "Grafana", "Firebase", "SSL",],
+    items: [
+      "AWS",
+      "Docker",
+      "Docker Compose",
+      "CI/CD",
+      "GitHub Actions",
+      "Jenkins",
+      "Nginx",
+      "Linux",
+      "Firebase",
+      "SSL",
+    ],
     dir: 1,
   },
 ];
@@ -442,19 +510,11 @@ export default function HomePage() {
                 {/* Right Side Content */}
                 <div className="reveal-up">
                   <p className="text-lg leading-relaxed text-black/65 md:text-xl">
-                    Crello is a technology-driven software development and
-                    digital solutions agency helping startups, growing
-                    businesses, and enterprises build, scale, and transform
-                    their digital presence.
+                    Crello is a technology-driven software development agency helping startups, businesses, and enterprises build scalable web applications, mobile apps, AI solutions, SaaS platforms, and custom software tailored to their goals.
                   </p>
 
                   <p className="mt-6 text-lg leading-relaxed text-black/65 md:text-xl">
-                    We combine product thinking, engineering, AI, automation,
-                    and growth strategy to create secure, scalable, and
-                    user-focused solutions.
-                    We combine product thinking, engineering, AI, automation,
-                    and growth strategy to create secure, scalable, and
-                    user-focused solutions.
+                    We combine strategy, design, engineering, and modern technologies like React, Next.js, Node.js, TypeScript, and AI to create secure, high-performance digital products that drive growth and deliver real business value.
                   </p>
 
                   <a
@@ -572,23 +632,23 @@ export default function HomePage() {
                 {[
                   {
                     icon: Gauge,
-                    title: "Built to perform",
-                    text: "Fast, responsive and engineered with real-world performance in mind.",
+                    title: "Built to Perform",
+                    text: "Fast, secure, and SEO-friendly software engineered for performance, reliability, and exceptional user experiences.",
                   },
                   {
                     icon: Layers3,
-                    title: "Ready to scale",
-                    text: "Architecture designed to grow with your users, data and business.",
+                    title: "Ready to Scale",
+                    text: "Scalable architecture built to support growing users, complex workflows, and evolving business needs.",
                   },
                   {
                     icon: ShieldCheck,
-                    title: "Secure by thinking",
-                    text: "Security considered throughout the product and development lifecycle.",
+                    title: "Secure by Design",
+                    text: "Security-first development with modern best practices, data protection, and reliable application architecture.",
                   },
                   {
                     icon: Users,
-                    title: "True collaboration",
-                    text: "Clear communication, shared context and close partnership from start to finish.",
+                    title: "True Partnership",
+                    text: "Transparent communication, agile development, and close collaboration from discovery to deployment.",
                   },
                 ].map((item) => {
                   const Icon = item.icon;
@@ -627,19 +687,30 @@ export default function HomePage() {
       < section
         id="stacks"
         className="relative overflow-hidden px-6 py-10 md:px-10 md:py-40" >
-      
+
         <div className="reveal-up lg:col-span-3 text-white">
-              <SectionLabel number="04">Our Stack</SectionLabel>
+          <SectionLabel number="04">Our Stack</SectionLabel>
         </div>
 
         <h2
           data-reveal
-          className="mt-10 lg:mt-20 mb-16 max-w-6xl text-[clamp(2.25rem,6vw,4.5rem)] font-semibold uppercase leading-[1.02] tracking-tight text-white/90"
+          className="mt-10 lg:mt-20 mb-5 max-w-6xl text-[clamp(2.25rem,6vw,4.5rem)] font-semibold  leading-[1.02] tracking-tight text-white/90"
         >
+          <span></span>
           Technology is the tool.
           <br />
-          Impact is the outcome.
+          <span className="text-white/30">
+
+            Impact is the outcome.
+          </span>
+
         </h2>
+        <p className="max-w-2xl text-lg leading-relaxed text-white/70">
+          We build modern digital products using industry-leading technologies,
+          frameworks, AI tools, and cloud platforms to deliver secure, scalable,
+          high-performance software solutions.
+        </p>
+
 
         <div className="flex flex-col gap-6">
           {STACK_ROWS.map((row, rowIndex) => {
@@ -701,13 +772,13 @@ export default function HomePage() {
         </div>
 
 
-        
+
       </section >
 
       {/* =====================================================
           07. PROCESS / WORKING APPROACH
       ===================================================== */}
-      
+
       < ProcessSection />
 
 
@@ -717,8 +788,8 @@ export default function HomePage() {
 
       <section
         id="work"
-        ref={workRef}className="px-5 py-24 text-black md:px-10 md:py-36 lg:px-14 lg:py-44"
-        
+        ref={workRef} className="px-5 py-24 text-black md:px-10 md:py-36 lg:px-14 lg:py-44"
+
       >
         <div className="mx-auto max-w-[1600px]">
           <div className="grid gap-12 lg:grid-cols-12">
@@ -732,6 +803,11 @@ export default function HomePage() {
                 <br />
                 <span className="text-black/30">a purpose.</span>
               </h2>
+              <p className="mt-6 max-w-2xl text-lg leading-relaxed text-black/60">
+  Explore our portfolio of custom software, web applications, e-commerce
+  platforms, AI solutions, and business systems built to solve real-world
+  challenges and drive measurable growth.
+</p>
             </div>
           </div>
 
@@ -904,8 +980,8 @@ export default function HomePage() {
       >
         <div className="mx-auto flex max-w-[1600px] flex-col items-center gap-12 text-center">
           <div className="flex items-center gap-3 text-[11px] font-semibold uppercase tracking-[0.18em]">
-      <span>How We Work</span>
-    </div>
+            <span>How We Work</span>
+          </div>
 
           <h2 className="max-w-4xl text-[11vw] font-medium leading-[0.95] tracking-[-0.06em] md:text-[6.5vw] lg:text-[5vw]">
             Got an idea?
