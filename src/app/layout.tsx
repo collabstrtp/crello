@@ -9,8 +9,8 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://www.crello.dev"),
 
   title: {
-    default: "Crello Technologies | Custom Software Development Company",
-    template: "%s | Crello Technologies",
+  default: "Crello Technologies | Custom Software Development Company",
+  template: "%s | Crello Technologies",
   },
 
   description:
@@ -36,6 +36,11 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://www.crello.dev",
   },
+
+  icons: {
+  icon: "/icon.png",
+  apple: "/apple-touch-icon.png",
+},
 
   robots: {
     index: true,

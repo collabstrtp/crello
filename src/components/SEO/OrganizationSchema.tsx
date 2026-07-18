@@ -14,11 +14,12 @@ export default function OrganizationSchema() {
   };
 
   const website = {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    url: "https://www.crello.dev",
-    name: "Crello Technologies",
-  };
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: "Crello Technologies",
+  alternateName: "Crello",
+  url: "https://www.crello.dev",
+};
 
   return (
     <>
