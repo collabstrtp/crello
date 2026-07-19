@@ -476,7 +476,7 @@ export default function HomePage() {
       < section
         id="about"
         ref={aboutRef}
-        className="px-5 py-24 md:px-10 md:py-36 lg:px-14 lg:py-48"
+        className="px-5 py-24 md:px-10 md:py-36 lg:px-14 lg:py-28"
       >
         <div className="mx-auto max-w-[1600px]">
           <div className="grid gap-12 lg:grid-cols-12">
@@ -541,7 +541,7 @@ export default function HomePage() {
       < section
         id="services"
         ref={servicesRef}
-        className="px-5 py-24 text-white md:px-10 md:py-36 lg:px-14 lg:py-44"
+        className="px-5 py-24 text-white md:px-10 md:py-36 lg:px-14 lg:py-28"
       >
         <div className="mx-auto max-w-[1600px]">
           <div className="grid gap-10 lg:grid-cols-12">
@@ -614,7 +614,7 @@ export default function HomePage() {
           05. WHY CHOOSE US / BENEFITS
       ===================================================== */}
 
-      < section className="px-5 py-24 md:px-10 md:py-36 lg:px-14 lg:py-44" >
+      < section className="px-5 py-24 md:px-10 md:py-36 lg:px-14 lg:py-28" >
         <div className="mx-auto max-w-[1600px]">
           <div className="grid gap-12 lg:grid-cols-12">
             <div className="reveal-up lg:col-span-3 text-white">
@@ -686,7 +686,7 @@ export default function HomePage() {
 
       < section
         id="stacks"
-        className="relative overflow-hidden px-6 py-10 md:px-10 md:py-40" >
+        className="relative overflow-hidden px-6 py-10 md:px-10 md:py-28" >
 
         <div className="reveal-up lg:col-span-3 text-white">
           <SectionLabel number="04">Our Stack</SectionLabel>
@@ -788,7 +788,7 @@ export default function HomePage() {
 
       <section
         id="work"
-        ref={workRef} className="px-5 py-24 text-black md:px-10 md:py-36 lg:px-14 lg:py-44"
+        ref={workRef} className="px-5 py-24 text-black md:px-10 md:py-36 lg:px-14 lg:py-28"
 
       >
         <div className="mx-auto max-w-[1600px]">
@@ -804,10 +804,10 @@ export default function HomePage() {
                 <span className="text-black/30">a purpose.</span>
               </h2>
               <p className="mt-6 max-w-2xl text-lg leading-relaxed text-black/60">
-  Explore our portfolio of custom software, web applications, e-commerce
-  platforms, AI solutions, and business systems built to solve real-world
-  challenges and drive measurable growth.
-</p>
+                Explore our portfolio of custom software, web applications, e-commerce
+                platforms, AI solutions, and business systems built to solve real-world
+                challenges and drive measurable growth.
+              </p>
             </div>
           </div>
 
@@ -886,7 +886,7 @@ export default function HomePage() {
           09. TESTIMONIALS / CLIENT TRUST
       ===================================================== */}
 
-      <section className="px-5 py-24 md:px-10 md:py-36 lg:px-14 lg:py-44">
+      <section className="px-5 py-24 md:px-10 md:py-36 lg:px-14 lg:py-28">
         <div className="mx-auto max-w-[1600px]">
           <div className="grid gap-12 lg:grid-cols-12">
             <div className="reveal-up lg:col-span-3">
