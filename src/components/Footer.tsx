@@ -8,6 +8,7 @@ import {
   FaLinkedinIn,
   FaInstagram,
   FaXTwitter,
+  FaWhatsapp,
 } from "react-icons/fa6";
 import Image from "next/image"
 import logo from "../../public/logo-white.png";
@@ -37,13 +38,25 @@ export default function Footer() {
             </p>
 
             <div className="mt-8 flex gap-3">
-              {[FaLinkedinIn, FaInstagram, FaXTwitter].map((Icon, index) => (
+              {[
+                {
+                  icon: FaLinkedinIn,
+                  href: "https://www.linkedin.com/company/crellotech/",
+                },
+                {
+                  icon: FaInstagram,
+                  href: "https://www.instagram.com/crellotech/",
+                },
+                {
+                  icon: FaWhatsapp,
+                  href: "https://wa.me/919479003560",
+                },
+              ].map(({ icon: Icon, href }, index) => (
                 <a
                   key={index}
-                    target="_blank"
-
-                  
-                  href="https://www.linkedin.com/company/crellotech/about/"
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="flex h-11 w-11 items-center justify-center rounded-full border border-white/15 text-white/65 transition-all hover:border-[#ff5c35] hover:bg-[#ff5c35] hover:text-white"
                 >
                   <Icon size={17} />
@@ -118,12 +131,12 @@ export default function Footer() {
                 </div>
 
                 <a
-  href="tel:+919755390579"
-  className="flex items-center gap-3 transition-opacity hover:opacity-70"
->
-  <Phone size={15} />
-  +91 9755390579
-</a>
+                  href="tel:+919479003560"
+                  className="flex items-center gap-3 transition-opacity hover:opacity-70"
+                >
+                  <Phone size={15} />
+                  +91 9479003560
+                </a>
               </div>
             </div>
           </div>
