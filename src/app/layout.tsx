@@ -9,8 +9,8 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://www.crello.dev"),
 
   title: {
-  default: "Crello Technologies | Custom Software Development Company",
-  template: "%s | Crello Technologies",
+    default: "Crello Technologies | Custom Software Development Company",
+    template: "%s | Crello Technologies",
   },
 
   description:
@@ -38,9 +38,10 @@ export const metadata: Metadata = {
   },
 
   icons: {
-  icon: "/icon.png",
-  apple: "/apple-touch-icon.png",
-},
+    icon: "/favicon.ico",
+    shortcut: "/favicon.ico",
+    apple: "/apple-touch-icon.png",
+  },
 
   robots: {
     index: true,
@@ -116,7 +117,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="bg-[#050505] antialiased">
-          <OrganizationSchema />
+        <OrganizationSchema />
 
         <Navbar />
 
