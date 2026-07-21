@@ -119,11 +119,11 @@ export default function ContactForm() {
             {/* HEADING */}
             <h2
                 data-stagger
-                className="mb-3 text-xl font-black leading-[0.95] text-black sm:mb-4 sm:text-4xl lg:text-5xl"
+                className="mb-2 text-xl font-black leading-[0.95] text-black sm:mb-4 sm:text-4xl lg:text-5xl"
             >
-                Let&apos;s talk,
-                <br />
-                Get in touch!
+                Let&apos;s talk !
+                {/* <br />
+                Get in touch! */}
             </h2>
 
             {/* FIELDS + MESSAGE — two columns from sm: up, stacked on mobile */}
